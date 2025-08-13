@@ -27,11 +27,14 @@ Tabla de datos con información de clientes y órdenes.
 
 Footer informativo con enlace a política de privacidad.
 
-# Responsive design: se adapta a escritorio, tablet y móvil.
+# Responsive design:
+se adapta a escritorio, tablet y móvil.
 
-# Interactividad: hover en tarjetas e imágenes, sidebar colapsable.
+# Interactividad: 
+hover en tarjetas e imágenes, sidebar colapsable.
 
-# Accesibilidad: roles ARIA y navegación por teclado.
+# Accesibilidad: 
+roles ARIA y navegación por teclado.
 
 # Estructura del proyecto
 bash
