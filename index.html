@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard Profesional</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app" role="application">
+
+  <!-- Sidebar: menú lateral con logo, navegación y una imagen -->
+<aside class="sidebar" role="navigation" aria-label="Menú principal">
+  <div class="brand">
+    <!-- Botón para colapsar el sidebar -->
+    <button id="toggleSidebar" aria-label="Colapsar menú">☰</button>
+    <span class="brand-title">Tienda</span>
+  </div>
+
+  <!-- Navegación principal -->
+  <nav class="nav-list">
+    <a href="#" class="active">Dashboard</a> <!-- Enlace activo -->
+    <a href="#">Ventas</a>
+    <a href="#">Inventario</a>
+    <a href="#">Usuarios</a>
+    <a href="#">Reportes</a>
+  </nav>
+
+  <!-- Imagen final del sidebar -->
+  <div class="sidebar-image">
+    <img src="tienda.png" alt="Logo" /> <!-- Logo o imagen representativa -->
+  </div>
+</aside>
+
+  <!-- Header: contiene barra de búsqueda y perfil -->
+  <header class="header" role="banner">
+    <div class="search">
+      <input type="search" placeholder="Buscar..." aria-label="Buscar en el dashboard">
+    </div>
+    <div class="profile" tabindex="0" aria-label="Perfil de usuario">
+      <span>Danny Diaz</span> <!-- Nombre de usuario -->
+    </div>
+  </header>
+
+  <!-- Main Content: tarjetas de resumen y tabla de datos -->
+  <main class="main" role="main">
+    <!-- Tarjetas: muestran métricas rápidas -->
+    <section class="cards">
+      <div class="card" tabindex="0">Ingresos: $12k</div>
+      <div class="card" tabindex="0">Órdenes: 842</div>
+      <div class="card" tabindex="0">Stock bajo: 14</div>
+      <div class="card" tabindex="0">Clientes nuevos: 312</div>
+    </section>
+
+    <!-- Tabla de datos -->
+    <section class="table-section">
+      <table>
+        <thead>
+          <tr><th>#</th><th>Cliente</th><th>Total</th><th>Estado</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>Natan</td><td>$120</td><td>Pendiente</td></tr>
+          <tr><td>2</td><td>Santiago</td><td>$220</td><td>Completado</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <!-- Footer: información general y enlace a política -->
+  <footer class="footer" role="contentinfo">
+     2025 Tienda Danny- <a href="#">Política de privacidad</a>
+  </footer>
+</div>
+
+<!-- Script: colapsa o expande el sidebar -->
+<script>
+const toggleBtn = document.getElementById('toggleSidebar');
+toggleBtn.addEventListener('click', () => {
+  document.querySelector('.sidebar').classList.toggle('collapsed'); // Alterna la clase collapsed
+});
+</script>
+</body>
+</html>
