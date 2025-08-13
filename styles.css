@@ -1,0 +1,228 @@
+/* ========================
+   VARIABLES Y RESET
+   Colores, fuentes y estilos base para todo el dashboard
+======================== */
+:root {
+  --bg: #0f1724;       /* Fondo principal del body */
+  --panel: #111;        /* Fondo de sidebar y tarjetas */
+  --accent: #4f46e5;    /* Color de acento para hover y elementos activos */
+  --text: #fff;         /* Color principal del texto */
+  --muted: #9aa4b2;     /* Color de texto secundario */
+  --radius: 12px;       /* Bordes redondeados */
+  --gap: 1rem;          /* Espaciado general entre elementos */
+  --font: 'Inter', sans-serif; /* Fuente principal */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Evita que padding y border afecten al tamaño total */
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* ========================
+   LAYOUT PRINCIPAL - GRID
+   Organiza sidebar, header, main y footer
+======================== */
+.app {
+  display: grid;
+  grid-template-areas:
+    "sidebar header"
+    "sidebar main"
+    "sidebar footer";
+  grid-template-columns: 220px 1fr; /* Sidebar fijo y resto flexible */
+  grid-template-rows: 60px 1fr 40px; /* Header, main y footer */
+  min-height: 100vh;
+  gap: var(--gap);
+}
+
+/* ========================
+   SIDEBAR
+======================== */
+.sidebar {
+  grid-area: sidebar;
+  background: var(--panel);
+  padding: var(--gap);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  transition: width 0.3s; /* Animación al colapsar */
+}
+
+.sidebar.collapsed {
+  width: 60px; /* Tamaño reducido al colapsar */
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: var(--muted);
+  padding: 0.5rem;
+  border-radius: var(--radius);
+  transition: background 0.3s, color 0.3s; /* Efecto al pasar el mouse */
+}
+
+.nav-list a.active,
+.nav-list a:hover {
+  background: var(--accent); /* Resalta enlace activo o hover */
+  color: #fff;
+}
+
+/* ========================
+   HEADER
+======================== */
+.header {
+  grid-area: header;
+  background: #222;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.search input {
+  padding: 0.4rem 0.6rem;
+  border-radius: var(--radius);
+  border: none;
+}
+
+.profile {
+  cursor: pointer; /* Indica que es interactivo */
+}
+
+/* ========================
+   MAIN CONTENT
+======================== */
+.main {
+  grid-area: main;
+  padding: var(--gap);
+  display: grid;
+  grid-template-rows: auto 1fr; /* Tarjetas arriba, tabla abajo */
+  gap: var(--gap);
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap; /* Permite varias filas de tarjetas si no caben */
+  gap: var(--gap);
+}
+
+.card {
+  flex: 1 1 200px; /* Crece y encoge según espacio */
+  background: #222;
+  padding: 1rem;
+  border-radius: var(--radius);
+  transition: transform 0.2s, background 0.2s; /* Efecto hover */
+  cursor: pointer;
+}
+
+.card:hover,
+.card:focus {
+  background: var(--accent);
+  transform: translateY(-5px); /* Pequeño levantamiento al pasar el mouse */
+}
+
+.table-section {
+  background: #222;
+  padding: 1rem;
+  border-radius: var(--radius);
+  overflow-x: auto; /* Permite scroll horizontal si la tabla es grande */
+}
+
+.table-section table {
+  width: 100%;
+  border-collapse: collapse; /* Evita doble borde en celdas */
+}
+
+.table-section th,
+.table-section td {
+  padding: 0.5rem;
+  text-align: left;
+  border-bottom: 1px solid #333;
+}
+
+/* ========================
+   FOOTER
+======================== */
+.footer {
+  grid-area: footer;
+  background: #222;
+  text-align: center;
+  line-height: 40px;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ========================
+   IMAGEN EN SIDEBAR
+======================== */
+.sidebar-image {
+  margin-top: auto; /* Empuja la imagen hacia abajo */
+  text-align: center;
+}
+
+.sidebar-image img {
+  max-width: 100%;
+  border-radius: var(--radius);
+  margin-top: var(--gap);
+  transition: transform 0.3s;
+}
+
+.sidebar-image img:hover {
+  transform: scale(1.05); /* Efecto visual al pasar el mouse */
+}
+
+/* ========================
+   RESPONSIVE DESIGN
+======================== */
+@media (max-width: 1024px) {
+  .app {
+    grid-template-columns: 60px 1fr; /* Sidebar más pequeño en tablet */
+  }
+  .sidebar.collapsed {
+    width: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .app {
+    grid-template-areas:
+      "header"
+      "main"
+      "footer"; /* Sidebar desaparece del grid principal */
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr 40px;
+  }
+
+  .sidebar {
+    position: absolute; /* Sidebar flotante en móvil */
+    z-index: 10;
+    width: 200px;
+    height: 100vh;
+    left: -220px; /* Oculto fuera de pantalla */
+    transition: left 0.3s;
+  }
+
+  .sidebar.collapsed {
+    left: 0; /* Se despliega al colapsar */
+  }
+}
