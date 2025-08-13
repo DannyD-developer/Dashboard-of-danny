@@ -1,7 +1,7 @@
-/* ========================
+/* 
    VARIABLES Y RESET
    Colores, fuentes y estilos base para todo el dashboard
-======================== */
+ */
 :root {
   --bg: #0f1724;       /* Fondo principal del body */
   --panel: #111;        /* Fondo de sidebar y tarjetas */
