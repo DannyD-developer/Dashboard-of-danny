@@ -36,15 +36,7 @@ hover en tarjetas e imágenes, sidebar colapsable.
 # Accesibilidad: 
 roles ARIA y navegación por teclado.
 
-# Estructura del proyecto
-bash
-Copy
-Edit
-/dashboard-profesional
-│
-├─ index.html       # Archivo principal del dashboard
-├─ styles.css       # Estilos y maquetación
-└─ README.md        # Documentación del proyecto
-
 # Cómo ejecutar el proyecto
 Abre este link, te ridigira directamente a mi pagina.
+
+https://dannyd-developer.github.io/Dashboard-of-danny/
